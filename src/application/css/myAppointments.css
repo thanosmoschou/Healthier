@@ -1,0 +1,200 @@
+@font-face{
+	font-family: Sofia;
+	src: url("/fonts/Sofia-Regular.ttf");
+}
+
+@font-face{
+	font-family: Rosarivo;
+	src: url("/fonts/Rosarivo-Regular.ttf");
+}
+
+
+#mainScreen{
+	-fx-background-image: url("/images/stethoscope.jpg");
+	-fx-background-repeat: no-repeat; 
+	-fx-background-size: 860 670;
+	-fx-background-position: center center;
+}
+
+
+#healthierLabel{
+	-fx-alignment: center;
+	-fx-text-alignment: center;
+	-fx-font-family: "Sofia";
+	-fx-text-fill: white;
+	-fx-font-size: 40;
+}
+
+
+#myAppointmentsContainerBox{
+	-fx-background-color: #827d7d;
+	-fx-opacity: 0.9;
+	-fx-background-radius: 10;
+	
+}
+
+
+#newAppointmentLabel{
+	-fx-text-alignment: center;
+	-fx-alignment: center;
+	-fx-text-fill: white;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 20;
+}
+
+
+#myAppointmentsButton, #newAppointmentButton, #logoutButton{
+	-fx-font-family: "Rosarivo";
+	-fx-background-color: transparent;
+	-fx-alignment: center;
+	-fx-text-alignment: center;
+	-fx-font-size: 15;
+	-fx-text-fill: white;
+}
+
+
+#authorLabel{
+	-fx-text-alignment: center;
+	-fx-text-fill: white;
+	-fx-font-family: "Sofia";
+	-fx-alignment: center;
+	-fx-font-size: 10;
+}
+
+.combo-box{
+	-fx-background-color: #a7acb2;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 11;
+}
+
+
+.combo-box-popup .list-view .list-cell{
+	-fx-background-color: #a7acb2;
+	-fx-text-fill: black;
+	
+}
+
+.date-picker .arrow-button{
+  -fx-background-color: #a7acb2;
+  -fx-background-radius: 0;
+  -fx-border-color: transparent;
+}
+
+ 
+.date-picker .arrow-button .arrow {
+  -fx-background-color: white;
+}
+ 
+/*-----------------------------------------
+Customize popup content
+-------------------------------------------*/
+.date-picker .cell {
+  -fx-background-color: white;
+}
+ 
+.date-picker .cell:hover {
+  -fx-background-color: #a7acb2;
+}
+ 
+.date-picker .cell:focused {
+  -fx-background-color: #a7acb2;
+}
+ 
+/*-----------------------------------------
+Customize the selected cell
+-------------------------------------------*/
+
+.date-picker .text-field{
+	-fx-background-color: #a7acb2;
+	-fx-border-color: transparent;
+	-fx-text-fill: black;
+	-fx-font-family: "Rosarivo";
+}
+
+ 
+.date-picker .selected {
+  -fx-background-color: #a7acb2;
+  -fx-text-fill: white;
+}
+ 
+ 
+.date-picker-popup .month-year-pane {
+  -fx-background-color: #a7acb2;
+}
+ 
+.date-picker-popup .month-year-pane .label {
+  -fx-text-fill: white;
+}
+ 
+
+.date-picker-popup .week-number-cell {
+  -fx-text-fill: white;
+ 
+}
+
+.date-picker-popup .week-number-cell:hover{
+	-fx-background-color: white;
+	-fx-text-fill: white;
+}
+ 
+/*-----------------------------------------
+Customize left and right arrow
+-------------------------------------------*/
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+  -fx-background-color: black;
+}
+
+
+.list-view, #history{
+	-fx-background-color: #a7acb2;
+	-fx-opacity: 0.8;
+}
+
+
+.list-cell{
+	-fx-text-fill: black;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 14;
+	-fx-background-color: #a7acb2;
+	
+}
+
+
+.list-cell:selected{
+	-fx-background-color: #777777;
+	-fx-text-fill: white;
+}
+
+#titleLabel{
+	-fx-text-alignment: center;
+	-fx-alignment: center;
+	-fx-text-fill: white;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 20;
+}
+
+
+#promptLabel{
+	-fx-text-alignment: left;
+	-fx-alignment: left;
+	-fx-text-fill: white;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 15;
+}
+
+
+#printListButton{
+	-fx-background-color: #056b21;
+	-fx-text-fill: white;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 13;
+}
+
+
+#deleteButton{
+	-fx-background-color: #6b0505;
+	-fx-text-fill: white;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 13;
+}
