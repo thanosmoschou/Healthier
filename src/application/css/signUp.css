@@ -1,0 +1,91 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+@font-face{
+	font-family: Sofia;
+	src: url("/fonts/Sofia-Regular.ttf");
+}
+
+@font-face{
+	font-family: Rosarivo;
+	src: url("/fonts/Rosarivo-Regular.ttf");
+}
+
+
+#signUpPage{
+	-fx-background-image: url("/images/doctorAestheticLogin.jpg");
+	-fx-background-repeat: no-repeat; 
+	-fx-background-size: 600 600;
+	-fx-background-position: center center;
+}
+
+
+#healthierLabel{
+	-fx-alignment: top-left;
+	-fx-font-family: "Sofia";
+	-fx-text-fill: white;
+	-fx-font-size: 40;
+}
+
+
+#signUpFieldsContainer{
+	-fx-fill: black;
+	-fx-opacity: 0.3;
+}
+
+
+#signUpLabel{
+	-fx-text-alignment: center;
+	-fx-text-fill: white;
+	-fx-alignment: center;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 24;
+}
+
+
+#usernameLabel, #passwordLabel, #emailLabel, #ssnLabel, #phoneLabel{
+	-fx-text-alignment: left;
+	-fx-text-fill: white;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 15;
+}
+
+
+#usernameField, #emailField, #ssnField, #phoneField{
+	-fx-background-color: #777777;
+	-fx-text-fill: white;
+	-fx-font-size: 13;
+	-fx-font-family: "Rosarivo";
+}
+
+
+.radio{
+	-fx-background-color: #777777;
+	-fx-background-radius: 60;
+	-fx-mark-color: white;
+}
+
+
+#patientLabel, #doctorLabel{
+	-fx-text-fill: white;
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 13;
+}
+
+
+#passwordField{
+	-fx-background-color: #777777;
+	-fx-text-fill: white;
+	-fx-font-size: 10;
+}
+
+
+#signUpButton, #cancelButton{
+	-fx-font-family: "Rosarivo";
+	-fx-font-size: 15;
+	-fx-background-color: black;
+	-fx-text-fill: white;	
+}
+
+
+
+
