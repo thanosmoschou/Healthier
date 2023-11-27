@@ -1,6 +1,7 @@
 package application.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import application.AlertMessages;
 import application.Db;
@@ -43,6 +44,9 @@ public class NewAppointmentController
 	//Date needs to be specified in order not to receive a runtime exception from the DatePicker
 	public void scheduleAppointment()
 	{
+		if(dateField.getValue() == null)
+			dateField.setValue(LocalDate.now());
+		
 		String firstNameAsAString = firstNameField.getText();
 		String lastNameAsAString = lastNameField.getText();
 		String emailAsAString = emailField.getText();
@@ -54,6 +58,8 @@ public class NewAppointmentController
 		{
 			Db.storeAppointmentToDb(firstNameAsAString, lastNameAsAString, emailAsAString, ssnAsAString, phoneAsAString, dateAsAString);
 		}
+		else
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.EMPTY_APPOINTMENT_FIELDS_MESSAGE, AlertType.ERROR);
 		
 	}
 	
