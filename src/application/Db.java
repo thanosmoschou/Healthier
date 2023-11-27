@@ -106,8 +106,30 @@ public class Db
 	
 	public static void storeAppointmentToDb(String firstName, String lastName, String email, String ssn, String phone, String date)
 	{
-		//store to db
-		//print alert for success or fail
+		try 
+		{
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/health", usernameForDb, passwordForDb);
+			String query = "insert into appointments values (?, ?, ?, ?, ?, ?)";
+			
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setString(1, firstName);
+			preparedStmt.setString(2, lastName);
+			preparedStmt.setString(3, email);
+			preparedStmt.setString(4, ssn);
+			preparedStmt.setString(5, phone);
+			preparedStmt.setString(6, date);
+			preparedStmt.execute();
+
+			
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_SUCCESS, AlertMessages.APPOINTMENT_BOOKING_SUCCESS_MESSAGE, AlertType.INFORMATION);
+			
+		} 
+		catch(SQLException e) 
+		{
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.APPOINTMENT_BOOKING_FAILED_MESSAGE, AlertType.ERROR);
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public static ObservableList<String> fetchReservationsFromDb(String date)

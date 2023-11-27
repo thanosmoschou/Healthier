@@ -28,7 +28,10 @@ public class AlertMessages
 	public static final String REGISTRATION_SUCCESS = "Registration succeed";
 	public static final String REGISTRATION_SUCCESS_MESSAGE = "Doctor is now registered!";
 	public static final String DOCTOR_ALREADY_EXISTS = "Doctor is already registered in the app (the ssn you provided is reserved).";
-	
+	public static final String APPOINTMENT_BOOKING_SUCCESS = "Successful booking";
+	public static final String APPOINTMENT_BOOKING_SUCCESS_MESSAGE = "The booking was successful.";
+	public static final String APPOINTMENT_BOOKING_FAILED_MESSAGE = "Something went wrong and booking could not be stored.\nTry again later.";
+	public static final String EMPTY_APPOINTMENT_FIELDS_MESSAGE = "Please fill the fields.";
 	
 	public static void createAlertWindow(String title, String content, AlertType type)
 	{
