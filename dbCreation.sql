@@ -6,9 +6,9 @@ create table doctors(
     username varchar(30),
     password varchar(30),
     email varchar(30),
-    ssn varchar(5) primary key,
+    doctorSSN varchar(5) primary key,
     phone varchar(10)
-)
+);
 
 create table appointments(
     firstname varchar(10),
@@ -17,5 +17,7 @@ create table appointments(
     patientSSN varchar(5),
     phone varchar(10),
     appointmentDate date, 
-    primary key(patientSSN, appointmentDate)
+    doctorSSN varchar(5),
+    primary key(patientSSN, appointmentDate),
+    foreign key (doctorSSN) references doctors(doctorSSN)
 )
