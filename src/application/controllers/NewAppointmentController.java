@@ -44,8 +44,7 @@ public class NewAppointmentController
 	//Date needs to be specified in order not to receive a runtime exception from the DatePicker
 	public void scheduleAppointment()
 	{
-		if(dateField.getValue() == null)
-			dateField.setValue(LocalDate.now());
+		setDateToDateField();
 		
 		String firstNameAsAString = firstNameField.getText();
 		String lastNameAsAString = lastNameField.getText();
@@ -61,6 +60,12 @@ public class NewAppointmentController
 		else
 			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.EMPTY_APPOINTMENT_FIELDS_MESSAGE, AlertType.ERROR);
 		
+	}
+	
+	public void setDateToDateField()
+	{
+		if(dateField.getValue() == null)
+			dateField.setValue(LocalDate.now());
 	}
 	
 	

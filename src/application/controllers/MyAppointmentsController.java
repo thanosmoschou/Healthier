@@ -1,6 +1,7 @@
 package application.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import application.AlertMessages;
 import application.Validator;
@@ -47,6 +48,13 @@ public class MyAppointmentsController
 		}
 		else
 			AlertMessages.createAlertWindow(AlertMessages.CANNOT_PRINT_LIST, AlertMessages.EMPTY_DATE_ALERT, AlertType.ERROR);
+	}
+	
+	
+	public void setDateToDateField()
+	{
+		if(dateField.getValue() == null)
+			dateField.setValue(LocalDate.now());
 	}
 	
 	
