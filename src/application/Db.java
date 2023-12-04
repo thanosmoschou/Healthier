@@ -25,14 +25,14 @@ public class Db
 	}
 	
 	
-	public static boolean storeUserToDb(User user)
+	public static boolean storeUserToDb(Doctor doctor)
 	{
 		//store to db
-		String username = user.getUsername();
-		String password = user.getPassword();
-		String email = user.getEmail();
-		String ssn = ((Doctor) user).getSSN();
-		String phone = user.getPhone();
+		String username = doctor.getUsername();
+		String password = doctor.getPassword();
+		String email = doctor.getEmail();
+		String ssn = doctor.getSsn();
+		String phone = doctor.getPhone();
 			
 		try
 		{
@@ -71,7 +71,7 @@ public class Db
 	}
 	
 	
-	public static User fetchUserFromDb(String aUsername, String aPassword)
+	public static Doctor fetchUserFromDb(String aUsername, String aPassword)
 	{
 		try 
 		{
@@ -88,7 +88,10 @@ public class Db
 			Doctor doc = null;
 			
 			if(res.next())
-				doc = new Doctor(res.getString("username"), res.getString("password"), res.getString("email"), res.getString("ssn"), res.getString("phone"));
+			{
+				doc = Doctor.getInstance();
+				Doctor.setDoctorsData(res.getString("username"), res.getString("password"), res.getString("email"), res.getString("doctorSSN"), res.getString("phone"));
+			}
 			
 			preparedStmt.close();
 			connection.close();
