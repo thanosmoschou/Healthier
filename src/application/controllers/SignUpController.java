@@ -5,7 +5,6 @@ import java.io.IOException;
 import application.AlertMessages;
 import application.Db;
 import application.Doctor;
-import application.User;
 import application.Validator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,8 +51,9 @@ public class SignUpController
 		
 		if(checkValidityOfData(usernameAsAString, passwordAsAString, emailAsAString, ssnAsAString, phoneAsAString))
 		{
-			User user = new Doctor(usernameAsAString, passwordAsAString, emailAsAString, ssnAsAString, phoneAsAString);
-			boolean success = Db.storeUserToDb(user);
+			Doctor doctor = Doctor.getInstance();
+			Doctor.setDoctorsData(usernameAsAString, passwordAsAString, emailAsAString, ssnAsAString, phoneAsAString);
+			boolean success = Db.storeUserToDb(doctor);
 			if(success)
 				goToNewAppointmentScene(e);
 		}
