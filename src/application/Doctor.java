@@ -3,7 +3,7 @@ package application;
 
 //This class implements the Singleton Design Pattern
 //I want only one instance of Doctor object while app is running
-//If user logs out and then he logs in again, I change only the instances attributes
+//If user logs out and then he logs in again, I change only the instance's attributes
 public class Doctor
 {
 	private String username;
@@ -65,8 +65,5 @@ public class Doctor
 	{
 		return phone;
 	}
-	
-	
-	
 	
 }
