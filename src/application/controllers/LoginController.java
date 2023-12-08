@@ -1,3 +1,10 @@
+/*
+ * Author: Thanos Moschou
+ * Description: This is a doctor appointment app written in Java by
+ * using JavaFX.
+ * Last Modification Date: 8/12/2023
+ */
+
 package application.controllers;
 
 import java.io.IOException;
@@ -5,6 +12,7 @@ import java.io.IOException;
 import application.AlertMessages;
 import application.Db;
 import application.Doctor;
+import application.Validator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,8 +54,12 @@ public class LoginController
 				goToNewAppointmentScene(e);
 		}
 		else
+		{
+			System.out.println(Validator.getProblemCode());
 			AlertMessages.createAlertWindow(AlertMessages.LOGIN_FAILED, AlertMessages.EMPTY_LOGIN_FIELDS, AlertType.ERROR);	
+		}
 	}
+	
 	
 	private boolean areFieldsFilled(String aUsername, String aPassword)
 	{
