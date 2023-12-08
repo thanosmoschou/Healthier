@@ -1,3 +1,10 @@
+/*
+ * Author: Thanos Moschou
+ * Description: This is a doctor appointment app written in Java by
+ * using JavaFX.
+ * Last Modification Date: 8/12/2023
+ */
+
 package application;
 
 import java.sql.Connection;
@@ -107,20 +114,25 @@ public class Db
 		return null;
 	}
 	
-	public static void storeAppointmentToDb(String firstName, String lastName, String email, String ssn, String phone, String date)
+	//I will get the doctors SSN inside this method
+	//Each patient can have only one appointment per day
+	public static void storeAppointmentToDb(String firstName, String lastName, String email, String patientSSN, String phone, String date)
 	{
 		try 
 		{
+			String doctorSSN = Doctor.getInstance().getSsn();
+			
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/health", usernameForDb, passwordForDb);
-			String query = "insert into appointments values (?, ?, ?, ?, ?, ?)";
+			String query = "insert into appointments values (?, ?, ?, ?, ?, ?, ?)";
 			
 			preparedStmt = connection.prepareStatement(query);
 			preparedStmt.setString(1, firstName);
 			preparedStmt.setString(2, lastName);
 			preparedStmt.setString(3, email);
-			preparedStmt.setString(4, ssn);
+			preparedStmt.setString(4, patientSSN);
 			preparedStmt.setString(5, phone);
 			preparedStmt.setString(6, date);
+			preparedStmt.setString(7, doctorSSN);
 			preparedStmt.execute();
 
 			

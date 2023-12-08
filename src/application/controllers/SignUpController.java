@@ -1,3 +1,10 @@
+/*
+ * Author: Thanos Moschou
+ * Description: This is a doctor appointment app written in Java by
+ * using JavaFX.
+ * Last Modification Date: 8/12/2023
+ */
+
 package application.controllers;
 
 import java.io.IOException;
@@ -57,11 +64,12 @@ public class SignUpController
 			if(success)
 				goToNewAppointmentScene(e);
 		}
+		else
+			System.out.println(Validator.getProblemCode());
 		
 	}
 	
 	
-	//Just a simple check if ssn is digits, if email contains @ and . and if phone is digits
 	private boolean checkValidityOfData(String username, String password, String email, String ssn, String phone)
 	{
 		

@@ -1,3 +1,10 @@
+/*
+ * Author: Thanos Moschou
+ * Description: This is a doctor appointment app written in Java by
+ * using JavaFX.
+ * Last Modification Date: 8/12/2023
+ */
+
 package application.controllers;
 
 import java.io.IOException;
@@ -19,9 +26,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class NewAppointmentController 
-{
-	//fill this
-	
+{	
 	@FXML
 	private Button logoutButton;
 	@FXML
@@ -49,16 +54,17 @@ public class NewAppointmentController
 		String firstNameAsAString = firstNameField.getText();
 		String lastNameAsAString = lastNameField.getText();
 		String emailAsAString = emailField.getText();
-		String ssnAsAString = ssnField.getText();
+		String patientSSNAsAString = ssnField.getText();
 		String phoneAsAString = phoneField.getText();
 		String dateAsAString = dateField.getValue().toString();
 		
-		if(checkValidityOfData(firstNameAsAString, lastNameAsAString, emailAsAString, ssnAsAString, phoneAsAString, dateAsAString))
-		{
-			Db.storeAppointmentToDb(firstNameAsAString, lastNameAsAString, emailAsAString, ssnAsAString, phoneAsAString, dateAsAString);
-		}
+		if(checkValidityOfData(firstNameAsAString, lastNameAsAString, emailAsAString, patientSSNAsAString, phoneAsAString, dateAsAString))
+			Db.storeAppointmentToDb(firstNameAsAString, lastNameAsAString, emailAsAString, patientSSNAsAString, phoneAsAString, dateAsAString);
 		else
+		{
+			System.out.println(Validator.getProblemCode()); //see what is the problem with the fields
 			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.EMPTY_APPOINTMENT_FIELDS_MESSAGE, AlertType.ERROR);
+		}
 		
 	}
 	
@@ -122,7 +128,6 @@ public class NewAppointmentController
 	}
 	
 	
-	//fill this with methods
 	public void changeToMyAppointmentsScene(ActionEvent e)
 	{
 		Node node = (Node) e.getSource();

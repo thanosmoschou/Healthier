@@ -1,3 +1,10 @@
+/*
+ * Author: Thanos Moschou
+ * Description: This is a doctor appointment app written in Java by
+ * using JavaFX.
+ * Last Modification Date: 8/12/2023
+ */
+
 package application.controllers;
 
 import java.io.IOException;
@@ -19,9 +26,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class MyAppointmentsController 
-{
-	//fill this
-	
+{	
 	@FXML
 	private Button logoutButton;
 	@FXML
@@ -34,9 +39,6 @@ public class MyAppointmentsController
 	private Scene scene;
 	private Parent root;
 	
-	
-	
-	//fill this with methods
 	public void fillTheList()
 	{
 		ObservableList<String> list = history.getItems();

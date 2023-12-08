@@ -1,3 +1,10 @@
+/*
+ * Author: Thanos Moschou
+ * Description: This is a doctor appointment app written in Java by
+ * using JavaFX.
+ * Last Modification Date: 8/12/2023
+ */
+
 package application;
 
 import javafx.scene.control.Alert;
