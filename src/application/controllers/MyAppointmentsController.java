@@ -2,7 +2,7 @@
  * Author: Thanos Moschou
  * Description: This is a doctor appointment app written in Java by
  * using JavaFX.
- * Last Modification Date: 8/12/2023
+ * Last Modification Date: 10/12/2023
  */
 
 package application.controllers;
@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 import application.AlertMessages;
+import application.Db;
 import application.Validator;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,22 +35,29 @@ public class MyAppointmentsController
 	@FXML
 	private DatePicker dateField;
 	
-	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
 	public void fillTheList()
 	{
-		ObservableList<String> list = history.getItems();
 		String date = dateField.getValue().toString();
 		
 		if(Validator.isDateValid(date))
 		{
-			//fetch from db and print
+			history.getItems().clear(); //clear the list view from previous searches
+			ObservableList<String> appointments = Db.fetchAppointmentsFromDb(date);
+			
+			if(appointments != null && appointments.size() > 0)
+			{
+				history.getItems().add("First Name	Last Name	Email	Patient SSN    Phone");
+				history.getItems().addAll(appointments);
+			}
+			else
+				history.getItems().clear();	
 		}
 		else
-			AlertMessages.createAlertWindow(AlertMessages.CANNOT_PRINT_LIST, AlertMessages.EMPTY_DATE_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.CANNOT_PRINT_LIST, AlertMessages.EMPTY_DATE_MESSAGE, AlertType.ERROR);
 	}
 	
 	

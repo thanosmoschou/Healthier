@@ -2,7 +2,7 @@
  * Author: Thanos Moschou
  * Description: This is a doctor appointment app written in Java by
  * using JavaFX.
- * Last Modification Date: 8/12/2023
+ * Last Modification Date: 10/12/2023
  */
 
 package application.controllers;
@@ -75,31 +75,31 @@ public class SignUpController
 		
 		if(!Validator.isUsernameValid(username))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.EMPTY_USERNAME_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.EMPTY_USERNAME_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
 		if(!Validator.isPasswordValid(password))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.INVALID_PASSWORD_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.INVALID_PASSWORD_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
 		if(!Validator.isEmailValid(email))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.INVALID_EMAIL_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.INVALID_EMAIL_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
 		if(!Validator.isSSNValid(ssn))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.INVALID_SSN_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.INVALID_SSN_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
 		if(!Validator.isPhoneValid(phone))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.INVALID_PHONE_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.INVALID_PHONE_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		

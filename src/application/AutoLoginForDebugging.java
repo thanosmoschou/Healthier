@@ -2,7 +2,7 @@
  * Author: Thanos Moschou
  * Description: This is a doctor appointment app written in Java by
  * using JavaFX.
- * Last Modification Date: 8/12/2023
+ * Last Modification Date: 10/12/2023
  */
 
 package application;
@@ -16,8 +16,8 @@ import javafx.stage.Stage;
 
 public class AutoLoginForDebugging 
 {
-	private static String username = "test1";
-	private static String password = "aaAA11!!";
+	private static String username = "Georgios";
+	private static String password = "thTH22@@";
 	
 	public void login(Stage primaryStage)
 	{

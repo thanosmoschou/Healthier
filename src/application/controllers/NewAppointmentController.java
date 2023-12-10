@@ -2,7 +2,7 @@
  * Author: Thanos Moschou
  * Description: This is a doctor appointment app written in Java by
  * using JavaFX.
- * Last Modification Date: 8/12/2023
+ * Last Modification Date: 10/12/2023
  */
 
 package application.controllers;
@@ -90,37 +90,37 @@ public class NewAppointmentController
 	{
 		if(!Validator.isFirstNameValid(firstName))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.EMPTY_FIRSTNAME_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.EMPTY_FIRSTNAME_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
 		if(!Validator.isLastNameValid(lastName))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.EMPTY_LASTNAME_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.EMPTY_LASTNAME_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
 		if(!Validator.isEmailValid(email))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.INVALID_EMAIL_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.INVALID_EMAIL_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
 		if(!Validator.isSSNValid(ssn))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.INVALID_SSN_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.INVALID_SSN_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
 		if(!Validator.isPhoneValid(phone))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.INVALID_PHONE_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.INVALID_PHONE_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
 		if(!Validator.isDateValid(date))
 		{
-			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.EMPTY_DATE_ALERT, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.EMPTY_DATE_MESSAGE, AlertType.ERROR);
 			return false;
 		}
 		
