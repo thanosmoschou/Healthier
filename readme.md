@@ -62,5 +62,5 @@ Make sure you have changed ```path\to\javafx\lib``` to the original path of the 
 
 ### Possible improvements
 Add encryption to data. <br>
-Make this app using a framework such as Spring. <br>
+Make this app by using a framework such as Spring. <br>
 
