@@ -2,7 +2,7 @@
  * Author: Thanos Moschou
  * Description: This is a doctor appointment app written in Java by
  * using JavaFX.
- * Last Modification Date: 8/12/2023
+ * Last Modification Date: 10/12/2023
  */
 
 package application;
@@ -26,10 +26,9 @@ public class Main extends Application
 		try 
 		{
 			//testing purposes only
-			AutoLoginForDebugging debug = new AutoLoginForDebugging();
-			debug.login(primaryStage);
+			//AutoLoginForDebugging debug = new AutoLoginForDebugging();
+			//debug.login(primaryStage);
 			
-			/*
 			Parent root = FXMLLoader.load(this.getClass().getResource("scenes/LoginScene.fxml"));
 			Scene scene = new Scene(root, 600, 600);
 			scene.getStylesheets().add(this.getClass().getResource("css/login.css").toExternalForm());
@@ -38,7 +37,7 @@ public class Main extends Application
 			primaryStage.setTitle("Health!er");
 			primaryStage.setResizable(false);
 			primaryStage.show();
-			*/
+			
 		} 
 		catch(Exception e) 
 		{

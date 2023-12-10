@@ -2,7 +2,7 @@
  * Author: Thanos Moschou
  * Description: This is a doctor appointment app written in Java by
  * using JavaFX.
- * Last Modification Date: 8/12/2023
+ * Last Modification Date: 10/12/2023
  */
 
 package application;
@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert.AlertType;
 
@@ -70,7 +71,7 @@ public class Db
 		}
 		catch(SQLException e) 
 		{
-			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.SOMETHING_WENT_WRONG, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.REGISTRATION_FAILED, AlertMessages.SOMETHING_WENT_WRONG_WITH_USER_CREATION, AlertType.ERROR);
 			e.printStackTrace();
 		}
 		
@@ -107,7 +108,6 @@ public class Db
 		} 
 		catch(SQLException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 				
@@ -115,7 +115,7 @@ public class Db
 	}
 	
 	//I will get the doctors SSN inside this method
-	//Each patient can have only one appointment per day
+	//Each patient can have only one appointment per day for a single doctor
 	public static void storeAppointmentToDb(String firstName, String lastName, String email, String patientSSN, String phone, String date)
 	{
 		try 
@@ -135,22 +135,59 @@ public class Db
 			preparedStmt.setString(7, doctorSSN);
 			preparedStmt.execute();
 
-			
 			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_SUCCESS, AlertMessages.APPOINTMENT_BOOKING_SUCCESS_MESSAGE, AlertType.INFORMATION);
-			
 		} 
 		catch(SQLException e) 
 		{
-			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.APPOINTMENT_BOOKING_FAILED_MESSAGE, AlertType.ERROR);
+			AlertMessages.createAlertWindow(AlertMessages.APPOINTMENT_BOOKING_FAILED, AlertMessages.ONLY_ONE_APPOINTMENT_PER_DOCTOR, AlertType.ERROR);
 			e.printStackTrace();
 		}
 		
 	}
 	
-	public static ObservableList<String> fetchReservationsFromDb(String date)
+	public static ObservableList<String> fetchAppointmentsFromDb(String date)
 	{
-		//fetch from db
-		return null;
+		ObservableList<String> appointments = FXCollections.observableArrayList();
+		
+		try 
+		{
+			String doctorSSN = Doctor.getInstance().getSsn();
+			
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/health", usernameForDb, passwordForDb);
+			String query = "select firstname, lastname, email, patientSSN, phone "
+						 + "from appointments "
+						 + "where doctorSSN = ? and appointmentDate = ?";
+			
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setString(1, doctorSSN);
+			preparedStmt.setString(2, date);
+			preparedStmt.execute();
+			
+			ResultSet res = preparedStmt.getResultSet();
+
+			String appointment = "";
+			while(res.next())
+			{
+				appointment = res.getString("firstname") + "	" + res.getString("lastname") + "	"
+							+ res.getString("email") + "	" + res.getString("patientSSN") +   "   "
+							+ res.getString("phone");
+				
+				appointments.add(appointment);
+			}
+			
+			if(appointments.size() == 0)
+			{
+				AlertMessages.createAlertWindow(AlertMessages.CANNOT_PRINT_LIST, AlertMessages.NO_APPOINTMENTS_THAT_DAY, AlertType.INFORMATION);
+				return null;
+			}
+		} 
+		catch(SQLException e) 
+		{
+			AlertMessages.createAlertWindow(AlertMessages.CANNOT_PRINT_LIST, AlertMessages.CANNOT_PRINT_LIST_MESSAGE, AlertType.ERROR);
+			e.printStackTrace();
+		}
+		
+		return appointments;
 	}
 	
 }
