@@ -4,8 +4,8 @@ It is time to make your patients healthier! <br>
 ### Screenshots
 ![Login](screenshots/login.png)
 ![Sign Up](screenshots/signup.png)
-![New Appointment](screenshots/newAppointment.png)
-![My Appointments](screenshots/myAppointments.png)
+![New Appointment](screenshots/newappointment.png)
+![My Appointments](screenshots/myappointments.png)
 
 ### How it works
 Login to the app. <br>
