@@ -50,6 +50,7 @@ Right click on project -> Build Path -> Configure Build Path -> Java Build Path 
 
 The above steps are necessary only before you run the app for the first time. <br>
 After you complete all the previous steps, you will be able to run the app whenever you want without having to set anything up. <br>
+Just make sure the database is running before you start the app. <br>
 
 ### Alternative ways to run the app
 Open the runnableJar folder in a command line interface (Right click in the folder -> Open in Terminal. Then type the following command: <br>
